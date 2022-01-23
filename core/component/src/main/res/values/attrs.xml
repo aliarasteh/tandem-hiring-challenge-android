@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <declare-styleable name="AdvanceInput">
+        <attr name="ai_icon" format="reference" />
+        <attr name="ai_icon_tint" format="color" />
+        <attr name="ai_show_icon" format="boolean" />
+        <attr name="ai_text_color" format="color" />
+        <attr name="ai_text_hint_color" format="color" />
+        <attr name="ai_text" format="string" />
+        <attr name="ai_editable" format="boolean" />
+        <attr name="ai_hint" format="string" />
+        <attr name="ai_max_length" format="integer" />
+        <attr name="ai_inline_success_message" format="string" />
+        <attr name="ai_outline_success_message" format="string" />
+        <attr name="ai_inline_error_message" format="string" />
+        <attr name="ai_outline_error_message" format="string" />
+        <attr name="ai_ui_mode" format="integer">
+            <enum name="normal" value="1" />
+            <enum name="error" value="2" />
+            <enum name="success" value="3" />
+        </attr>
+        <attr name="ai_input_type" format="integer">
+            <!-- Just plain old text.  Corresponds to
+                 {@link android.text.InputType#TYPE_CLASS_TEXT} |
+                 {@link android.text.InputType#TYPE_TEXT_VARIATION_NORMAL}. -->
+            <flag name="text" value="0x00000001" />
+            <!-- Text that will be used as an e-mail address.  Corresponds to
+                 {@link android.text.InputType#TYPE_CLASS_TEXT} |
+                 {@link android.text.InputType#TYPE_TEXT_VARIATION_EMAIL_ADDRESS}. -->
+            <flag name="textEmailAddress" value="0x00000021" />
+            <!-- Text that is a password.  Corresponds to
+                 {@link android.text.InputType#TYPE_CLASS_TEXT} |
+                 {@link android.text.InputType#TYPE_TEXT_VARIATION_PASSWORD}. -->
+            <flag name="textPassword" value="0x00000081" />
+            <!-- A numeric only field.  Corresponds to
+                 {@link android.text.InputType#TYPE_CLASS_NUMBER} |
+                 {@link android.text.InputType#TYPE_NUMBER_VARIATION_NORMAL}. -->
+            <flag name="number" value="0x00000002" />
+            <!-- A numeric password field.  Corresponds to
+                 {@link android.text.InputType#TYPE_CLASS_NUMBER} |
+                 {@link android.text.InputType#TYPE_NUMBER_VARIATION_PASSWORD}. -->
+            <flag name="numberPassword" value="0x00000012" />
+            <!-- For entering a phone number.  Corresponds to
+                 {@link android.text.InputType#TYPE_CLASS_PHONE}. -->
+            <flag name="phone" value="0x00000003" />
+        </attr>
+        <attr name="ai_font_family" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="VerticalSeekBar">
+        <attr name="vsb_click_to_set_progress" format="boolean" />
+        <attr name="vsb_bar_corner_radius" format="dimension" />
+        <attr name="vsb_bar_width" format="dimension" />
+        <attr name="vsb_bar_background" format="reference|color" />
+        <attr name="vsb_bar_background_gradient_start" format="color" />
+        <attr name="vsb_bar_background_gradient_end" format="color" />
+        <attr name="vsb_bar_progress" format="reference|color" />
+        <attr name="vsb_bar_progress_gradient_start" format="color" />
+        <attr name="vsb_bar_progress_gradient_end" format="color" />
+        <attr name="vsb_progress" format="integer" />
+        <attr name="vsb_max_value" format="integer" />
+        <attr name="vsb_min_placeholder_position" format="enum">
+            <enum name="outside" value="0" />
+            <enum name="inside" value="1" />
+            <enum name="middle" value="2" />
+        </attr>
+        <attr name="vsb_min_placeholder_src" format="reference" />
+        <attr name="vsb_max_placeholder_position" format="enum">
+            <enum name="outside" value="0" />
+            <enum name="inside" value="1" />
+            <enum name="middle" value="2" />
+        </attr>
+        <attr name="vsb_max_placeholder_src" format="reference" />
+        <attr name="vsb_show_thumb" format="boolean" />
+        <attr name="vsb_thumb_container_corner_radius" format="dimension" />
+        <attr name="vsb_thumb_container_tint" format="color" />
+        <attr name="vsb_thumb_placeholder_src" format="integer" />
+        <attr name="vsb_use_thumb_to_set_progress" format="boolean" />
+        <attr name="android:layout_width" />
+        <attr name="android:layout_height" />
+    </declare-styleable>
+
+    <declare-styleable name="VerticalProgressBar">
+        <attr name="vpb_background_drawable" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundedImageView">
+        <attr name="riv_corner_radius" format="dimension" />
+        <attr name="riv_corner_radius_top_left" format="dimension" />
+        <attr name="riv_corner_radius_top_right" format="dimension" />
+        <attr name="riv_corner_radius_bottom_left" format="dimension" />
+        <attr name="riv_corner_radius_bottom_right" format="dimension" />
+        <attr name="riv_border_width" format="dimension" />
+        <attr name="riv_border_color" format="color" />
+        <attr name="riv_mutate_background" format="boolean" />
+        <attr name="riv_oval" format="boolean" />
+        <attr name="android:scaleType" />
+        <attr name="riv_tile_mode">
+            <enum name="clamp" value="0" />
+            <enum name="repeat" value="1" />
+            <enum name="mirror" value="2" />
+        </attr>
+        <attr name="riv_tile_mode_x">
+            <enum name="clamp" value="0" />
+            <enum name="repeat" value="1" />
+            <enum name="mirror" value="2" />
+        </attr>
+        <attr name="riv_tile_mode_y">
+            <enum name="clamp" value="0" />
+            <enum name="repeat" value="1" />
+            <enum name="mirror" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="RollingTextView">
+        <attr name="duration" format="reference|integer" />
+
+        <!-- Custom implementations of common android text attributes -->
+        <attr name="android:gravity" tools:ignore="ResourceName" />
+        <attr name="android:shadowColor" tools:ignore="ResourceName" />
+        <attr name="android:shadowDx" tools:ignore="ResourceName" />
+        <attr name="android:shadowDy" tools:ignore="ResourceName" />
+        <attr name="android:shadowRadius" tools:ignore="ResourceName" />
+        <attr name="android:text" tools:ignore="ResourceName" />
+        <attr name="android:textAppearance" tools:ignore="ResourceName" />
+        <attr name="android:textColor" tools:ignore="ResourceName" />
+        <attr name="android:textSize" tools:ignore="ResourceName" />
+        <attr name="android:textStyle" tools:ignore="ResourceName" />
+    </declare-styleable>
+</resources>

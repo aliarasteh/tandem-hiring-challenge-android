@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Tandem Test</string>
+    <string name="title_community">Community</string>
+    <string name="title_tutors">Tutors</string>
+    <string name="title_chats">Chats</string>
+    <string name="title_pro">Pro</string>
+</resources>

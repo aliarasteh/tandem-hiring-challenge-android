@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--  Attention: this strings are meant to be used as labels in navigation graph.
+          do not use them in design layouts  -->
+    <string name="home_fragment" tools:ignore="MissingTranslation">Home Page</string>
+    <string name="community_fragment" tools:ignore="MissingTranslation">Community Page</string>
+    <string name="tutors_fragment" tools:ignore="MissingTranslation">Tutors Page</string>
+    <string name="chats_fragment" tools:ignore="MissingTranslation">Chats Page</string>
+    <string name="pro_fragment" tools:ignore="MissingTranslation">Pro Page</string>
+</resources>

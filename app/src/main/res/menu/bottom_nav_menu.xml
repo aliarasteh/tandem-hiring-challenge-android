@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_community"
+        android:icon="@drawable/ic_community"
+        android:title="@string/title_community" />
+
+    <item
+        android:id="@+id/navigation_tutors"
+        android:icon="@drawable/ic_tutors"
+        android:title="@string/title_tutors" />
+
+    <item
+        android:id="@+id/navigation_chats"
+        android:icon="@drawable/ic_chat"
+        android:title="@string/title_chats" />
+
+    <item
+        android:id="@+id/navigation_pro"
+        android:icon="@drawable/ic_star"
+        android:title="@string/title_pro" />
+</menu>

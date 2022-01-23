@@ -1,0 +1,5 @@
+include ':core:component'
+include ':core:data'
+include ':feature:community'
+include ':app'
+rootProject.name = 'Tandem'

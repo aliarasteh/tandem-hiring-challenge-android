@@ -1,0 +1,40 @@
+<resources>
+
+    <style name="BaseAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="fontFamily">@font/plus_jakarta_display_medium</item>
+        <item name="colorControlHighlight">@color/colorWhiteDim25</item>
+    </style>
+
+    <style name="font_regular">
+        <item name="android:fontFamily">@font/plus_jakarta_display_regular</item>
+        <item name="fontFamily">@font/plus_jakarta_display_regular</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="font_medium">
+        <item name="android:fontFamily">@font/plus_jakarta_display_medium</item>
+        <item name="fontFamily">@font/plus_jakarta_display_medium</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="font_bold">
+        <item name="android:fontFamily">@font/plus_jakarta_display_bold</item>
+        <item name="fontFamily">@font/plus_jakarta_display_bold</item>
+    </style>
+
+    <style name="font_light">
+        <item name="android:fontFamily">@font/plus_jakarta_display_light</item>
+        <item name="fontFamily">@font/plus_jakarta_display_light</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="font_italic">
+        <item name="android:fontFamily">@font/plus_jakarta_display_italic</item>
+        <item name="fontFamily">@font/plus_jakarta_display_italic</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+</resources>

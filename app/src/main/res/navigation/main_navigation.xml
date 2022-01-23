@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/navigation_community">
+
+    <fragment
+        android:id="@+id/navigation_community"
+        android:name="net.tandem.community.ui.community.CommunityFragment"
+        android:label="@string/community_fragment" />
+
+    <fragment
+        android:id="@+id/navigation_tutors"
+        android:name="net.tandem.EmptyFragment"
+        android:label="@string/pro_fragment">
+
+        <argument
+            android:name="title"
+            android:defaultValue="Tutors"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_chats"
+        android:name="net.tandem.EmptyFragment"
+        android:label="@string/pro_fragment">
+
+        <argument
+            android:name="title"
+            android:defaultValue="Chats"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_pro"
+        android:name="net.tandem.EmptyFragment"
+        android:label="@string/pro_fragment">
+
+        <argument
+            android:name="title"
+            android:defaultValue="Pro"
+            app:argType="string" />
+    </fragment>
+
+</navigation>
