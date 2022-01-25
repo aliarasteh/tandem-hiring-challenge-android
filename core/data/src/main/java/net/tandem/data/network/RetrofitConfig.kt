@@ -1,6 +1,5 @@
 package net.tandem.data.network
 
-import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import net.tandem.data.AppConfig
@@ -31,10 +30,7 @@ class RetrofitConfig @Inject constructor() {
         getHttpClientBuilder()
     }
 
-    /**
-     * initialize Retrofit
-     * */
-    fun init(context: Context) {
+    init {
         // add main interceptor
         httpClient.addInterceptor(getMainInterceptor())
 

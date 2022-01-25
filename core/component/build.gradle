@@ -12,8 +12,6 @@ android {
     defaultConfig {
         minSdkVersion project.minSdkVersion.toInteger()
         targetSdkVersion project.targetSdkVersion.toInteger()
-        versionCode 1
-        versionName "1.0"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -22,7 +20,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -74,6 +72,6 @@ dependencies {
     api("io.coil-kt:coil-svg:$coilVersion")
 
     // tooltip (https://github.com/skydoves/Balloon)
-    implementation "com.github.skydoves:balloon:1.3.6"
+    implementation "com.github.skydoves:balloon:$skydovesBalloon"
 
 }

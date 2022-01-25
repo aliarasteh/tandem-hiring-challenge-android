@@ -1,7 +1,10 @@
 package net.tandem.data.model.response
 
+import com.google.gson.annotations.SerializedName
+
 data class CommunityResponse(
-    val response: List<Community>,
+    @SerializedName("response")
+    val communityList: List<Community>,
     val errorCode: Int?,
     val type: String?
 )

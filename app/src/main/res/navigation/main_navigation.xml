@@ -7,12 +7,12 @@
     <fragment
         android:id="@+id/navigation_community"
         android:name="net.tandem.community.ui.community.CommunityFragment"
-        android:label="@string/community_fragment" />
+        android:label="@string/title_community" />
 
     <fragment
         android:id="@+id/navigation_tutors"
         android:name="net.tandem.EmptyFragment"
-        android:label="@string/pro_fragment">
+        android:label="@string/title_tutors">
 
         <argument
             android:name="title"
@@ -23,7 +23,7 @@
     <fragment
         android:id="@+id/navigation_chats"
         android:name="net.tandem.EmptyFragment"
-        android:label="@string/pro_fragment">
+        android:label="@string/title_chats">
 
         <argument
             android:name="title"
@@ -34,7 +34,7 @@
     <fragment
         android:id="@+id/navigation_pro"
         android:name="net.tandem.EmptyFragment"
-        android:label="@string/pro_fragment">
+        android:label="@string/title_pro">
 
         <argument
             android:name="title"
