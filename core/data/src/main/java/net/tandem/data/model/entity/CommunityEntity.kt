@@ -2,10 +2,12 @@ package net.tandem.data.model.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
-import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import net.tandem.data.model.Comparable
 
+/**
+ * related entity for Community also defining "community" table
+ * */
 @Entity(tableName = "community")
 data class CommunityEntity(
     @PrimaryKey(autoGenerate = true)
@@ -73,6 +75,10 @@ data class CommunityEntity(
     }
 }
 
+/**
+ * partial community entity
+ * used when trying to update only some fields of "community" table
+ * */
 data class CommunityEntityPartial(
     @PrimaryKey(autoGenerate = true)
     var id: Int?,

@@ -19,12 +19,17 @@ class CommunityModel @Inject constructor(
     // ToDo: fetched objects do not have reliable ids, for test purpose fake ids are generated (we need ids for future update)
     private var startFakeId = 0
 
+    /**
+     * function uses local database as single source of truth.
+     * new community objects fetched from server API and will be saved in the database.
+     * uses resultPager function for balancing network and local repositories
+     * */
     @ExperimentalPagingApi
     fun getCommunityList(): Pager<Int, CommunityEntity> = resultPager(
         pageSize = dbLoadPageSize,
         databaseQuery = { communityDao.getCommunityList() }, // fetch data from database
         networkCall = { page -> apiClient.getCommunityList(page) }, // fetch data from server
-        saveCallResult = { response, loadType, page ->
+        saveCallResult = { response, loadType, _ ->
             if (loadType == LoadType.REFRESH)
                 startFakeId = 0
 
@@ -48,6 +53,9 @@ class CommunityModel @Inject constructor(
         }
     )
 
+    /**
+     * loads community objects from server API and directly passes them
+     * */
     @ExperimentalPagingApi
     fun getCommunityListNetworkOnly(): Pager<Int, CommunityEntity> = resultPager(
         pageSize = 20,
@@ -72,6 +80,9 @@ class CommunityModel @Inject constructor(
         }
     )
 
+    /**
+     * changes community like value in local database
+     * */
     suspend fun likeCommunity(communityId: Int, liked: Boolean) {
         communityDao.likeCommunity(communityId, liked)
     }

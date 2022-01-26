@@ -7,6 +7,12 @@ import coil.imageLoader
 import coil.load
 import coil.transform.RoundedCornersTransformation
 
+/**
+ * loaded images using Coil into ImageView
+ * @param imageUrl: image url to load
+ * @param placeHolder: shown while loading image url or when failure
+ * @param cornerRadius: adds radius into corners
+ * */
 @BindingAdapter(value = ["imageUrl", "placeHolder", "cornerRadius"], requireAll = false)
 fun loadImage(
     view: AppCompatImageView,

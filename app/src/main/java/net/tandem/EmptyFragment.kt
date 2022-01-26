@@ -9,7 +9,9 @@ import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
 import net.tandem.databinding.FragmentEmptyBinding
 
-
+/**
+ * Fragment used in navigation flow for pages not implemented (for test)
+ * */
 @AndroidEntryPoint
 class EmptyFragment : Fragment() {
 
@@ -26,11 +28,6 @@ class EmptyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.lifecycleOwner = this.viewLifecycleOwner
-    }
-
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
 
         binding.title.text = args.title
     }

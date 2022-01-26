@@ -8,7 +8,10 @@ import android.widget.TextView
 import androidx.core.view.GestureDetectorCompat
 import androidx.databinding.BindingAdapter
 
-
+/**
+ * shows tool tip on a TextView
+ * one common use case is when text is ellipsized and user wants to see full text
+ * */
 @SuppressLint("ClickableViewAccessibility")
 @BindingAdapter(value = ["tooltipText", "tooltipShowOnClick"], requireAll = false)
 fun setTextViewTooltip(view: TextView, tooltipText: String?, tooltipShowOnClick: Boolean? = false) {
@@ -38,6 +41,9 @@ fun setTextViewTooltip(view: TextView, tooltipText: String?, tooltipShowOnClick:
     }
 }
 
+/**
+ * checks if text is larger than TextView space and ellipsized
+ * */
 fun TextView.isEllipsized(): Boolean {
     try {
         if (layout != null) {

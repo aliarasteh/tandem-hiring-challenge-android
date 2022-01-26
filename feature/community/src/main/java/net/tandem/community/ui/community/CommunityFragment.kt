@@ -20,7 +20,9 @@ import net.tandem.community.ui.community.adapter.CommunityAdapter
 import net.tandem.component.paging.DefaultLoadStateAdapter
 import javax.inject.Inject
 
-
+/**
+ * uses RecyclerView and paging library to show community items
+ * */
 @AndroidEntryPoint
 class CommunityFragment : Fragment() {
 
@@ -44,14 +46,16 @@ class CommunityFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initRecyclerView()
+        setupRecyclerView()
 
+        // collect load state changes and decide to show "loading view" or "failure view"
         lifecycleScope.launchWhenCreated {
             adapter.loadStateFlow.collectLatest { loadState ->
                 onStateChange(loadState)
             }
         }
 
+        // collect community objects emitted by pager and submit them to be shown in RecyclerView
         lifecycleScope.launchWhenCreated {
             viewModel.getCommunityPager().collectLatest {
                 adapter.submitData(it)
@@ -60,16 +64,20 @@ class CommunityFragment : Fragment() {
 
     }
 
-    private fun initRecyclerView() {
+    private fun setupRecyclerView() {
+        // set adapter with load states for RecyclerView header and footer
         binding.recyclerView.adapter = adapter.withLoadStateHeaderAndFooter(
             DefaultLoadStateAdapter(adapter),
             DefaultLoadStateAdapter(adapter)
         )
 
+        // refresh data when swiping down
         binding.swipeRefresh.setOnRefreshListener {
             adapter.refresh()
         }
 
+        // if data loading fails -> retryButton will be shown on UI
+        // by clicking on retryButton retry action will be called for loading data
         binding.retryLayout.findViewById<View>(R.id.retryButton).setOnClickListener {
             adapter.retry()
             if (binding.retryLayout.isVisible)
@@ -83,9 +91,9 @@ class CommunityFragment : Fragment() {
         adapter.registerAdapterDataObserver(object : RecyclerView.AdapterDataObserver() {
             override fun onChanged() {
                 if (adapter.itemCount > 0) {
-                    binding.emptyLayout.visibility = View.GONE
+                    hideEmptyLayout()
                 } else if (!binding.swipeRefresh.isRefreshing) {
-                    binding.emptyLayout.visibility = View.VISIBLE
+                    showEmptyLayout()
                 }
             }
         })

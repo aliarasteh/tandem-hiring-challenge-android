@@ -25,7 +25,7 @@
 -forceprocessing
 -optimizationpasses 5
 
--keep class * extends android.app.Activity
+#-keep class * extends android.app.Activity
 -assumenosideeffects class android.util.Log {
     public static *** v(...);
     public static *** d(...);
@@ -33,3 +33,16 @@
     public static *** w(...);
     public static *** e(...);
 }
+
+#-dontwarn android.arch.util.paging.CountedDataSource
+#-dontwarn android.arch.persistence.room.paging.LimitOffsetDataSource
+#
+#-keep class * extends androidx.room.RoomDatabase
+#-keep @androidx.room.Entity class *
+#-dontwarn androidx.room.paging.**
+
+-keepclassmembers,allowobfuscation class * {
+@com.google.gson.annotations.SerializedName <fields>;
+}
+
+-keep class net.tandem.data.model.response** { *; }

@@ -58,6 +58,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.reset_all_data -> {
+                // clear community objects from database
                 viewModel.deleteAllCommunityItems()
             }
         }

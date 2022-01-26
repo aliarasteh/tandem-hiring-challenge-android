@@ -12,7 +12,7 @@ class CommunityDiffCallback @Inject constructor() : DiffUtil.ItemCallback<Commun
         oldItem.objectEqualsTo(newItem)
 
     override fun getChangePayload(oldItem: CommunityEntity, newItem: CommunityEntity): Any? {
-        return if (oldItem.liked != newItem.liked)
+        return if (oldItem.objectEqualsTo(newItem) && (oldItem.liked != newItem.liked))
             newItem.liked
         else null
     }

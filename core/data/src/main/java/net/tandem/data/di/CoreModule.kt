@@ -1,4 +1,4 @@
-package net.tandem.component.di
+package net.tandem.data.di
 
 import android.content.Context
 import androidx.room.Room
@@ -16,7 +16,9 @@ import net.tandem.data.network.ApiClient
 import net.tandem.data.network.RetrofitConfig
 import javax.inject.Singleton
 
-
+/**
+ * provides class instances to be used in other modules
+ * */
 @Module
 @InstallIn(SingletonComponent::class)
 object CoreModule {
@@ -30,6 +32,7 @@ object CoreModule {
     @Provides
     @Singleton
     fun provideApiClient(retrofitConfig: RetrofitConfig): ApiClient {
+        retrofitConfig.initialize()
         return retrofitConfig.createService(ApiClient::class.java)
     }
 

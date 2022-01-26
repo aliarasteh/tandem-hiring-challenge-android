@@ -2,18 +2,16 @@ package net.tandem.component.paging
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
 import androidx.core.view.isVisible
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.OnLifecycleEvent
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import kotlinx.android.synthetic.main.layout_custom_recycler.view.*
-import kotlinx.android.synthetic.main.layout_retry.view.*
 import net.tandem.component.R
+import net.tandem.component.databinding.LayoutCustomRecyclerBinding
 
 /**
  * custom view including recyclerview, swipeRefresh and also empty view to be shown in case
@@ -40,12 +38,13 @@ class CustomRecyclerLayout : FrameLayout, LifecycleObserver {
     }
 
     private fun init(context: Context) {
-        val rootLayout = View.inflate(context, R.layout.layout_custom_recycler, this)
+        val binding = LayoutCustomRecyclerBinding.inflate(LayoutInflater.from(context), this, false)
+//        val rootLayout = View.inflate(context, R.layout.layout_custom_recycler, this)
 
-        emptyLayout = rootLayout.emptyLayout
-        retryLayout = rootLayout.retryLayout
-        recyclerView = rootLayout.recyclerView
-        swipeRefresh = rootLayout.swipeRefresh
+        emptyLayout = binding.emptyLayout
+        retryLayout = binding.retryLayout
+        recyclerView = binding.recyclerView
+        swipeRefresh = binding.swipeRefresh
 
         swipeRefresh.setColorSchemeResources(R.color.colorPrimary, R.color.colorGrayDarker)
     }
@@ -107,7 +106,7 @@ class CustomRecyclerLayout : FrameLayout, LifecycleObserver {
      * set action for retry event
      * */
     fun setOnRetryListener(onRetry: () -> Unit) {
-        retryButton.setOnClickListener { onRetry() }
+        retryLayout.findViewById<View>(R.id.retryButton).setOnClickListener { onRetry() }
     }
 
     /**
@@ -115,14 +114,6 @@ class CustomRecyclerLayout : FrameLayout, LifecycleObserver {
      * */
     fun setLifecycleOwner(owner: LifecycleOwner) {
         owner.lifecycle.addObserver(this)
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    fun onStart() {
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-    fun onStop() {
     }
 
 }

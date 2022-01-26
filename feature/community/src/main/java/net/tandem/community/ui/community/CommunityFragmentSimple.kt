@@ -13,6 +13,10 @@ import net.tandem.component.paging.CustomRecyclerLayout
 import net.tandem.data.model.entity.CommunityEntity
 
 
+/**
+ * uses RecyclerView and paging library to show community items
+ * this class uses paging tools implemented in component class to avoid boilerplate codes
+ * */
 @AndroidEntryPoint
 class CommunityFragmentSimple :
     BasePagedFragment<CommunityEntity, ListItemCommunityBinding, FragmentCommunitySimpleBinding>(

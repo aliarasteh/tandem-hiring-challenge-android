@@ -13,6 +13,9 @@ import com.skydoves.balloon.BalloonSizeSpec
 import com.skydoves.balloon.createBalloon
 import net.tandem.component.util.FontManager
 
+/**
+ * activates showing tool tip on view
+ * */
 @SuppressLint("ClickableViewAccessibility")
 @BindingAdapter(value = ["tooltipText", "tooltipShowOnClick"], requireAll = false)
 fun setViewTooltip(view: View, tooltipText: String?, tooltipShowOnClick: Boolean? = false) {
@@ -43,6 +46,9 @@ fun setViewTooltip(view: View, tooltipText: String?, tooltipShowOnClick: Boolean
     }
 }
 
+/**
+ * shows tool tip on a View
+ * */
 fun View.showTooltipBalloon(tooltipText: String) {
     val balloon = createBalloon(context) {
         isVisibleArrow = false
@@ -64,5 +70,5 @@ fun View.showTooltipBalloon(tooltipText: String) {
         setPaddingVerticalResource(R.dimen.margin_10)
         setMarginResource(R.dimen.margin_15)
     }
-    balloon.show(this)
+    balloon.showAtCenter(this)
 }

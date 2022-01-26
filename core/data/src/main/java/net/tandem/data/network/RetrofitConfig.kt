@@ -22,7 +22,7 @@ import javax.inject.Singleton
  */
 
 @Singleton
-class RetrofitConfig @Inject constructor() {
+open class RetrofitConfig @Inject constructor() {
     protected val builder: Retrofit.Builder by lazy {
         getRetrofitBuilder()
     }
@@ -30,7 +30,7 @@ class RetrofitConfig @Inject constructor() {
         getHttpClientBuilder()
     }
 
-    init {
+    fun initialize() {
         // add main interceptor
         httpClient.addInterceptor(getMainInterceptor())
 
