@@ -17,13 +17,13 @@ In order to avoid synchronization discrepancies, it is required to define a sing
 
 
 
-check [**SingleSourceOfTruthStrategy.kt**](https://github.com/aliarasteh/tandem-hiring-challenge-android/blob/feature/community_list/core/data/src/main/java/net/tandem/data/SingleSourceOfTruthStrategy.kt) file for implementation detail
+check [**SingleSourceOfTruthStrategy.kt**](src/main/java/net/tandem/data/SingleSourceOfTruthStrategy.kt) file for implementation detail
 
 
 
 <br>
 
 <p align="center">
- <img src="https://mgit.mparsict.com/android/libs/basemodule/-/raw/master/files/data_flow.png"/></p>
+ <img src="../../files/data_flow.png"/></p>
 
 <br>

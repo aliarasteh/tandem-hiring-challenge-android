@@ -1,16 +1,17 @@
 ## Introduction
 This project is implemented for the Tandem hiring challenge. An application that will get information about a language learning
-community and display the data in a list as you can see in the below screenshot. check [**community directory**](https://github.com/aliarasteh/tandem-hiring-challenge-android/tree/main/feature/community) and read related [README](https://github.com/aliarasteh/tandem-hiring-challenge-android/tree/main/feature/community/README.md) for detail and notes.
+community and display the data in a list as you can see in the below screenshot. check [**community directory**](feature/community) and read related [README](feature/community/README.md) for detail and notes.
 
 You can download and test application from **files** directory or just click on below link.
 
-[**click to download apk file**](https://mgit.mparsict.com/android/libs/basemodule/-/raw/master/files/tandem-hiring-challenge.apk)
+[**click to download apk file**](https://raw.githubusercontent.com/aliarasteh/tandem-hiring-challenge-android/main/files/tandem-hiring-challenge.apk)
 
 
 
 <br>
 <p align="center">
- <img src="https://mgit.mparsict.com/android/libs/basemodule/-/raw/master/files/screenshot.png" width="250"/></p>
+ <img src="files/screenshot.png" width="250"/></p>
+
 <br>
 
 
@@ -32,13 +33,12 @@ Although this is a simple project for test challenge purposes that only shows a 
 project is designed with a **modular architecture** which brings us great advantages in maintenance, testability, development speed, and code separation and readability.
 here are modules defined in the app structure, you can see more detail about each module by selecting one.
 
-- [app]()
+- [app](app)
 - core
-  - [component](https://github.com/aliarasteh/tandem-hiring-challenge-android/tree/main/core/component)
-  - [data](https://github.com/aliarasteh/tandem-hiring-challenge-android/tree/main/core/data)
-
+  - [component](core/component)
+  - [data](core/data)
 - feature
-  - [community](https://github.com/aliarasteh/tandem-hiring-challenge-android/tree/main/feature/community)
+  - [community](feature/community)
   - other features
 
 
@@ -46,14 +46,14 @@ App navigation is implemented using the [**navigation component**](https://devel
 
 
 
-### <a name="technologies">Technologies</a> 
+### <a name="technologies">Technologies</a>
 
 - [**Kotlin**](https://kotlinlang.org/) used as main language offering great features like null-safety, extension functions and Coroutines
 - Android recommended [app architecture](https://developer.android.com/topic/architecture) mostly known as **MVVM**
 - [**Data Binding**](https://developer.android.com/topic/libraries/data-binding) library for binding UI components to data sources
 - Using [**Hilt**](https://developer.android.com/topic/libraries/data-binding) library for dependency injection
 - Android [**navigation component**](https://developer.android.com/guide/navigation/navigation-getting-started) used for managing navigation flow
-- [**Paging library **](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) to load and display pages of data from local storage or over network
+- [**Paging library**](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) to load and display pages of data from local storage or over network
 - [**Room**](https://developer.android.com/training/data-storage/room) as abstraction layer over SQLite database and great integration with paging
 
 

@@ -19,4 +19,4 @@ This module is implemented to show community items in a list.
 
 Two types of fragments are implemented, one is  CommunityFragment which is the normal implementation of loading list of objects with Paging library, and the other one named CommunityFragmentSimple is a simple implementation using paging helper function and classes avoiding boilerplate codes.
 
-When having multiple list pages these helper classes would really help us to speed up the development process with easy usage and less code. check classes and functions in the [paging directory](https://github.com/aliarasteh/tandem-hiring-challenge-android/tree/feature/community_list/core/component/src/main/java/net/tandem/component/paging) under the component module.
+When having multiple list pages these helper classes would really help us to speed up the development process with easy usage and less code. check classes and functions in the [paging directory](../../core/component/src/main/java/net/tandem/component/paging) under the component module.
