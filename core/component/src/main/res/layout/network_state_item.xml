@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height_55"
+        tools:background="@color/defaultBackground">
+
+        <LinearLayout
+            android:id="@+id/loadingView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="@dimen/icon_size_25"
+                android:layout_height="@dimen/icon_size_25"
+                android:layout_marginHorizontal="@dimen/margin_10"
+                android:indeterminateTint="@color/colorGrayDark"
+                android:padding="@dimen/margin_5"
+                android:theme="@style/ProgressBarStyle" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/font_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/loading"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="@dimen/text_size_12" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/loadFailView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/font_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_15"
+                android:text="@string/load_failed"
+                android:textColor="@color/colorRed"
+                android:textSize="@dimen/text_size_12" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/retryButton"
+                style="@style/font_medium"
+                android:layout_width="110dp"
+                android:layout_height="@dimen/button_height_35"
+                android:background="@drawable/btn_red"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:minWidth="@dimen/button_width_120"
+                android:text="@string/retry"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_14" />
+        </LinearLayout>
+    </FrameLayout>
+</layout>

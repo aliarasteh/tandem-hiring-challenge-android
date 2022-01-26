@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <string name="learns_title">LEARNS</string>
+    <string name="native_title">NATIVE</string>
+    <string name="not_referenced">New</string>
 </resources>

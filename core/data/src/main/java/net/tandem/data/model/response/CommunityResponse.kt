@@ -1,7 +1,13 @@
 package net.tandem.data.model.response
 
+import com.google.gson.annotations.SerializedName
+
+/**
+ * this class is used for parsing community list response
+ * */
 data class CommunityResponse(
-    val response: List<Community>,
+    @SerializedName("response")
+    val communityList: List<Community>,
     val errorCode: Int?,
     val type: String?
 )

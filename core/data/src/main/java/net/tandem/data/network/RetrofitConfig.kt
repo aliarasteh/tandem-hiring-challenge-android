@@ -1,6 +1,5 @@
 package net.tandem.data.network
 
-import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import net.tandem.data.AppConfig
@@ -23,7 +22,7 @@ import javax.inject.Singleton
  */
 
 @Singleton
-class RetrofitConfig @Inject constructor() {
+open class RetrofitConfig @Inject constructor() {
     protected val builder: Retrofit.Builder by lazy {
         getRetrofitBuilder()
     }
@@ -31,10 +30,7 @@ class RetrofitConfig @Inject constructor() {
         getHttpClientBuilder()
     }
 
-    /**
-     * initialize Retrofit
-     * */
-    fun init(context: Context) {
+    fun initialize() {
         // add main interceptor
         httpClient.addInterceptor(getMainInterceptor())
 

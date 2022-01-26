@@ -1,11 +1,11 @@
 <resources>
 
-    <style name="BaseAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="BaseAppTheme" parent="Theme.MaterialComponents.Light">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="fontFamily">@font/plus_jakarta_display_medium</item>
-        <item name="colorControlHighlight">@color/colorWhiteDim25</item>
+        <item name="colorControlHighlight">@color/colorBlackDim15</item>
     </style>
 
     <style name="font_regular">
@@ -35,6 +35,10 @@
         <item name="android:fontFamily">@font/plus_jakarta_display_italic</item>
         <item name="fontFamily">@font/plus_jakarta_display_italic</item>
         <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="ProgressBarStyle" parent="Widget.AppCompat.ProgressBar">
+        <item name="colorAccent">@color/colorGrayDarker</item>
     </style>
 
 </resources>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="community"
+            type="net.tandem.data.model.entity.CommunityEntity" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_middle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.0"
+            app:layout_constraintStart_toEndOf="@id/avatar" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/avatar"
+            android:layout_width="@dimen/avatar_size"
+            android:layout_height="@dimen/avatar_size"
+            android:layout_margin="@dimen/margin_18"
+            app:cornerRadius="@{@dimen/radius_12}"
+            app:imageUrl="@{community.pictureUrl}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:placeHolder="@{@drawable/default_avatar}"
+            tools:src="@tools:sample/avatars" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/firstName"
+            style="@style/font_bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_10"
+            android:layout_marginTop="@dimen/margin_20"
+            android:text="@{community.firstName}"
+            android:textColor="@color/colorGrayDarker"
+            android:textSize="@dimen/text_size_14"
+            app:layout_constraintEnd_toStartOf="@id/referenceBarrier"
+            app:layout_constraintStart_toEndOf="@id/avatar"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Martina" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/referenceBarrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="start"
+            app:constraint_referenced_ids="referenceCnt,notReferenced" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/referenceCnt"
+            style="@style/font_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_10"
+            android:text="@{community.referenceCountString}"
+            android:textColor="@color/colorGrayDarker"
+            android:textSize="@dimen/text_size_12"
+            android:visibility="@{community.referenced ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@id/firstName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/firstName"
+            tools:text="14" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/notReferenced"
+            style="@style/font_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_10"
+            android:background="@drawable/bg_radius_green"
+            android:paddingHorizontal="@dimen/margin_10"
+            android:paddingVertical="2dp"
+            android:text="@string/not_referenced"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_12"
+            android:visibility="@{community.referenced ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@id/firstName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/firstName"
+            tools:visibility="gone" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/topic"
+            style="@style/font_regular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_10"
+            android:layout_marginTop="@dimen/margin_10"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:text="@{community.topic}"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/avatar"
+            app:layout_constraintTop_toBottomOf="@id/firstName"
+            app:tooltipText="@{community.topic}"
+            tools:text="@tools:sample/lorem/random" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/nativeTitle"
+            style="@style/font_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_10"
+            android:layout_marginBottom="@dimen/margin_20"
+            android:text="@string/native_title"
+            android:textColor="@color/colorGrayDarker"
+            android:textSize="@dimen/text_size_11"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/avatar" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/font_medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_10"
+            android:layout_marginBottom="@dimen/margin_20"
+            android:lines="1"
+            android:text="@{community.nativesString}"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_9"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/learnsTitle"
+            app:layout_constraintStart_toEndOf="@id/nativeTitle"
+            tools:text="ES, EN" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/learnsTitle"
+            style="@style/font_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_10"
+            android:layout_marginBottom="@dimen/margin_20"
+            android:text="@string/learns_title"
+            android:textColor="@color/colorGrayDarker"
+            android:textSize="@dimen/text_size_11"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/like"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toEndOf="@id/nativeTitle" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/font_medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_10"
+            android:layout_marginBottom="@dimen/margin_20"
+            android:lines="1"
+            android:text="@{community.learnsString}"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_9"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/like"
+            app:layout_constraintStart_toEndOf="@id/learnsTitle"
+            tools:text="ES, EN" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/like"
+            android:layout_width="@dimen/icon_size_35"
+            android:layout_height="@dimen/icon_size_35"
+            android:layout_marginEnd="@dimen/margin_10"
+            android:layout_marginBottom="@dimen/margin_15"
+            android:background="?selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="@dimen/margin_5"
+            android:src="@{community.liked ? @drawable/ic_like : @drawable/ic_like_disabled}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:background="@color/dividerColor"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
