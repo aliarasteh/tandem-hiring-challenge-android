@@ -1,10 +1,11 @@
 package net.tandem.community.ui.community.adapter
 
 import net.tandem.data.model.entity.CommunityEntity
-import org.junit.Assert.*
+import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Before
 import org.junit.Test
 import org.hamcrest.core.Is.`is`
+import org.hamcrest.core.IsNull
 
 class CommunityDiffCallbackTest {
 
@@ -91,7 +92,7 @@ class CommunityDiffCallbackTest {
     fun getChangePayload_sameEntities_returnNull() {
         val result = diffCallback.getChangePayload(communityEntity1, communityEntity1Copy)
 
-        assertNull(result)
+        assertThat(result, `is`(IsNull.nullValue()))
     }
 
     @Test
