@@ -13,6 +13,7 @@ import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.AppBarConfiguration
+import net.tandem.BuildConfig
 import net.tandem.R
 
 
@@ -51,8 +52,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
-        return true
+        return if (BuildConfig.DEBUG) {
+            menuInflater.inflate(R.menu.main_menu, menu)
+            true
+        } else {
+            false
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

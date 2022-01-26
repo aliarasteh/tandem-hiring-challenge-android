@@ -5,7 +5,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="fontFamily">@font/plus_jakarta_display_medium</item>
-        <item name="colorControlHighlight">@color/colorWhiteDim25</item>
+        <item name="colorControlHighlight">@color/colorBlackDim15</item>
     </style>
 
     <style name="font_regular">

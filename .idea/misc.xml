@@ -7,6 +7,8 @@
         <entry key="app/src/main/res/drawable/ic_community.xml" value="0.33425925925925926" />
         <entry key="app/src/main/res/drawable/ic_star.xml" value="0.33425925925925926" />
         <entry key="app/src/main/res/drawable/ic_tutors.xml" value="0.33425925925925926" />
+        <entry key="core/component/src/main/res/layout/network_state_item.xml" value="0.20729166666666668" />
+        <entry key="feature/community/src/main/res/layout/list_item_community.xml" value="0.20729166666666668" />
       </map>
     </option>
   </component>

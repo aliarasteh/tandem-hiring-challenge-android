@@ -40,7 +40,6 @@
             android:id="@+id/loadFailView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="?selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"

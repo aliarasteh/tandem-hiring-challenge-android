@@ -7,6 +7,7 @@ import net.tandem.data.database.dao.CommunityDao
 import net.tandem.data.model.entity.CommunityEntity
 import net.tandem.data.network.ApiClient
 import net.tandem.data.resultPager
+import java.util.concurrent.atomic.AtomicInteger
 import javax.inject.Inject
 
 class CommunityModel @Inject constructor(
@@ -17,7 +18,7 @@ class CommunityModel @Inject constructor(
     private val networkPageSize = 20
 
     // ToDo: fetched objects do not have reliable ids, for test purpose fake ids are generated (we need ids for future update)
-    private var startFakeId = 0
+    private val startFakeId = AtomicInteger(0)
 
     /**
      * function uses local database as single source of truth.
@@ -31,12 +32,12 @@ class CommunityModel @Inject constructor(
         networkCall = { page -> apiClient.getCommunityList(page) }, // fetch data from server
         saveCallResult = { response, loadType, _ ->
             if (loadType == LoadType.REFRESH)
-                startFakeId = 0
+                startFakeId.set(0)
 
             // Map community list objects to CommunityEntity and save all items in database
             response?.communityList?.forEach {
                 val entity = CommunityEntity(
-                    id = startFakeId++,
+                    id = startFakeId.incrementAndGet(),
                     topic = it.topic,
                     firstName = it.firstName,
                     pictureUrl = it.pictureUrl,
