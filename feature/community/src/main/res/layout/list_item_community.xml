@@ -7,7 +7,7 @@
 
         <variable
             name="community"
-            type="net.tandem.data.model.entity.CommunityEntity" />
+            type="net.tandem.community.ui.community.adapter.CommunityItem" />
 
         <import type="android.view.View" />
     </data>
@@ -66,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_10"
-            android:text="@{community.referenceCountString}"
+            android:text="@{community.referenceCount}"
             android:textColor="@color/colorGrayDarker"
             android:textSize="@dimen/text_size_12"
             android:visibility="@{community.referenced ? View.VISIBLE : View.GONE}"
@@ -131,7 +131,7 @@
             android:layout_marginHorizontal="@dimen/margin_10"
             android:layout_marginBottom="@dimen/margin_20"
             android:lines="1"
-            android:text="@{community.nativesString}"
+            android:text="@{community.natives}"
             android:textColor="@color/colorGrayDark"
             android:textSize="@dimen/text_size_9"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -161,7 +161,7 @@
             android:layout_marginHorizontal="@dimen/margin_10"
             android:layout_marginBottom="@dimen/margin_20"
             android:lines="1"
-            android:text="@{community.learnsString}"
+            android:text="@{community.learns}"
             android:textColor="@color/colorGrayDark"
             android:textSize="@dimen/text_size_9"
             app:layout_constraintBottom_toBottomOf="parent"

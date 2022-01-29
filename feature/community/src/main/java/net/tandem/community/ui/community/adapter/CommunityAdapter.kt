@@ -6,13 +6,12 @@ import androidx.paging.PagingDataAdapter
 import net.tandem.community.R
 import net.tandem.community.databinding.ListItemCommunityBinding
 import net.tandem.component.paging.BaseViewHolder
-import net.tandem.data.model.entity.CommunityEntity
 import javax.inject.Inject
 
 class CommunityAdapter @Inject constructor(diffCallback: CommunityDiffCallback) :
-    PagingDataAdapter<CommunityEntity, BaseViewHolder<ListItemCommunityBinding>>(diffCallback) {
+    PagingDataAdapter<CommunityItem, BaseViewHolder<ListItemCommunityBinding>>(diffCallback) {
 
-    private var _onItemClickListener: ((CommunityEntity) -> Unit)? = null
+    private var _onItemClickListener: ((CommunityItem) -> Unit)? = null
 
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int
@@ -48,7 +47,7 @@ class CommunityAdapter @Inject constructor(diffCallback: CommunityDiffCallback) 
         }
     }
 
-    fun setOnItemClickListener(listener: (community: CommunityEntity) -> Unit) {
+    fun setOnItemClickListener(listener: (community: CommunityItem) -> Unit) {
         _onItemClickListener = listener
     }
 }
