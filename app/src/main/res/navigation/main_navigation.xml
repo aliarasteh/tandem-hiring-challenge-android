@@ -9,6 +9,11 @@
         android:name="net.tandem.community.ui.community.CommunityFragment"
         android:label="@string/title_community" />
 
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_community"-->
+<!--        android:name="net.tandem.community.ui.community.CommunityFragmentSimple"-->
+<!--        android:label="@string/title_community" />-->
+
     <fragment
         android:id="@+id/navigation_tutors"
         android:name="net.tandem.EmptyFragment"

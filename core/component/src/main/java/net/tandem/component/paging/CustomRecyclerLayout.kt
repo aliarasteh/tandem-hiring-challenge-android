@@ -22,6 +22,7 @@ class CustomRecyclerLayout : FrameLayout, LifecycleObserver {
     lateinit var recyclerView: RecyclerView
     lateinit var emptyLayout: View
     lateinit var retryLayout: View
+    lateinit var retryButton: View
 
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
         context, attrs, defStyleAttr
@@ -39,10 +40,10 @@ class CustomRecyclerLayout : FrameLayout, LifecycleObserver {
 
     private fun init(context: Context) {
         val binding = LayoutCustomRecyclerBinding.inflate(LayoutInflater.from(context), this, false)
-//        val rootLayout = View.inflate(context, R.layout.layout_custom_recycler, this)
 
-        emptyLayout = binding.emptyLayout
-        retryLayout = binding.retryLayout
+        emptyLayout = binding.emptyLayout.root
+        retryLayout = binding.retryLayout.root
+        retryButton = binding.retryLayout.retryButton
         recyclerView = binding.recyclerView
         swipeRefresh = binding.swipeRefresh
 
@@ -106,7 +107,7 @@ class CustomRecyclerLayout : FrameLayout, LifecycleObserver {
      * set action for retry event
      * */
     fun setOnRetryListener(onRetry: () -> Unit) {
-        retryLayout.findViewById<View>(R.id.retryButton).setOnClickListener { onRetry() }
+        retryButton.setOnClickListener { onRetry() }
     }
 
     /**

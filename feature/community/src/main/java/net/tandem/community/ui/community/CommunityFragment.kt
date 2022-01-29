@@ -14,7 +14,6 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
-import net.tandem.community.R
 import net.tandem.community.databinding.FragmentCommunityBinding
 import net.tandem.community.ui.community.adapter.CommunityAdapter
 import net.tandem.component.paging.DefaultLoadStateAdapter
@@ -37,7 +36,6 @@ class CommunityFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentCommunityBinding.inflate(inflater, container, false)
-        binding.lifecycleOwner = viewLifecycleOwner
 
         return binding.root
     }
@@ -78,10 +76,10 @@ class CommunityFragment : Fragment() {
 
         // if data loading fails -> retryButton will be shown on UI
         // by clicking on retryButton retry action will be called for loading data
-        binding.retryLayout.findViewById<View>(R.id.retryButton).setOnClickListener {
+        binding.retryLayout.retryButton.setOnClickListener {
             adapter.retry()
-            if (binding.retryLayout.isVisible)
-                binding.retryLayout.isVisible = false
+            if (binding.retryLayout.root.isVisible)
+                binding.retryLayout.root.isVisible = false
         }
 
         adapter.setOnItemClickListener { community ->
@@ -100,23 +98,23 @@ class CommunityFragment : Fragment() {
     }
 
     private fun showRetryLayout() {
-        if (!binding.retryLayout.isVisible)
-            binding.retryLayout.isVisible = true
+        if (!binding.retryLayout.root.isVisible)
+            binding.retryLayout.root.isVisible = true
     }
 
     private fun hideRetryLayout() {
-        if (binding.retryLayout.isVisible)
-            binding.retryLayout.isVisible = false
+        if (binding.retryLayout.root.isVisible)
+            binding.retryLayout.root.isVisible = false
     }
 
     private fun showEmptyLayout() {
-        if (!binding.emptyLayout.isVisible)
-            binding.emptyLayout.isVisible = true
+        if (!binding.emptyLayout.root.isVisible)
+            binding.emptyLayout.root.isVisible = true
     }
 
     private fun hideEmptyLayout() {
-        if (binding.emptyLayout.isVisible)
-            binding.emptyLayout.isVisible = false
+        if (binding.emptyLayout.root.isVisible)
+            binding.emptyLayout.root.isVisible = false
     }
 
     private fun onStateChange(loadState: CombinedLoadStates) {

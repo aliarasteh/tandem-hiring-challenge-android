@@ -13,7 +13,6 @@ android {
         minSdkVersion project.minSdkVersion.toInteger()
         targetSdkVersion project.targetSdkVersion.toInteger()
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        android.dataBinding.enabled true
         buildConfigField("int", "APP_VERSION", project.versionCode)
     }
 
