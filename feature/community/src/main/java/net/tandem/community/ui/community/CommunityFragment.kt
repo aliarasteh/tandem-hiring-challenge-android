@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -17,6 +18,7 @@ import kotlinx.coroutines.flow.collectLatest
 import net.tandem.community.databinding.FragmentCommunityBinding
 import net.tandem.community.ui.community.adapter.CommunityAdapter
 import net.tandem.component.paging.DefaultLoadStateAdapter
+import net.tandem.data.getError
 import javax.inject.Inject
 
 /**
@@ -141,6 +143,12 @@ class CommunityFragment : Fragment() {
                 }
             }
         }
+
+//        loadState.getError()?.let { error ->
+//            Toast.makeText(
+//                requireContext(), error.message ?: "Error Occurred", Toast.LENGTH_LONG
+//            ).show()
+//        }
     }
 
 }
