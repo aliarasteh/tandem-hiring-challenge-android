@@ -3,7 +3,6 @@ package net.tandem.data.model.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import net.tandem.data.model.Comparable
 
 /**
  * related entity for Community also defining "community" table
@@ -22,7 +21,7 @@ data class CommunityEntity(
     @ColumnInfo(name = "reference_count")
     var referenceCount: Int?,
     var liked: Boolean = false
-) : Comparable {
+) {
 
     companion object {
         fun newInstance(
@@ -48,31 +47,6 @@ data class CommunityEntity(
         }
     }
 
-    override fun objectEqualsTo(item: Comparable): Boolean {
-        return if (item is CommunityEntity) item.id == id else false
-    }
-
-    override fun contentEqualsTo(item: Comparable): Boolean {
-        return this@CommunityEntity == item
-    }
-
-    fun isReferenced(): Boolean = (referenceCount ?: 0) > 0
-
-    fun getReferenceCountString(): String = referenceCount.toString()
-
-    fun getNativesString(): String {
-        return if (natives.isNullOrEmpty())
-            "-"
-        else
-            natives!!.joinToString { it.uppercase() }
-    }
-
-    fun getLearnsString(): String {
-        return if (learns.isNullOrEmpty())
-            "-"
-        else
-            learns!!.joinToString { it.uppercase() }
-    }
 }
 
 /**

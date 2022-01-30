@@ -8,9 +8,9 @@ import kotlinx.coroutines.flow.Flow
 import net.tandem.community.R
 import net.tandem.community.databinding.FragmentCommunitySimpleBinding
 import net.tandem.community.databinding.ListItemCommunityBinding
+import net.tandem.community.ui.community.adapter.CommunityItem
 import net.tandem.component.paging.BasePagedFragment
 import net.tandem.component.paging.CustomRecyclerLayout
-import net.tandem.data.model.entity.CommunityEntity
 
 
 /**
@@ -19,7 +19,7 @@ import net.tandem.data.model.entity.CommunityEntity
  * */
 @AndroidEntryPoint
 class CommunityFragmentSimple :
-    BasePagedFragment<CommunityEntity, ListItemCommunityBinding, FragmentCommunitySimpleBinding>(
+    BasePagedFragment<CommunityItem, ListItemCommunityBinding, FragmentCommunitySimpleBinding>(
         R.layout.fragment_community_simple, R.layout.list_item_community
     ) {
 
@@ -27,7 +27,7 @@ class CommunityFragmentSimple :
 
     override fun bindRecyclerItem(
         binding: ListItemCommunityBinding,
-        item: CommunityEntity,
+        item: CommunityItem,
         position: Int,
         payloads: MutableList<Any>?
     ) {
@@ -38,7 +38,7 @@ class CommunityFragmentSimple :
     }
 
     @ExperimentalPagingApi
-    override fun getDataPager(): Flow<PagingData<CommunityEntity>> {
+    override fun getDataPager(): Flow<PagingData<CommunityItem>> {
         return viewModel.getCommunityPager()
     }
 
