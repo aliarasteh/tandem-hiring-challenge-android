@@ -1,6 +1,7 @@
 name: Android Build
 
-on: [pull_request, push]
+#on: [pull_request, push]
+on: [ push ]
 
 jobs:
   build:
@@ -13,10 +14,51 @@ jobs:
       - name: Set Up JDK
         uses: actions/setup-java@v1
         with:
-            java-version: 11
+          java-version: 11
 
-#      - name: Run Tests
-#        run: ./gradlew test
+      # - name: Decode Keystore
+      #     id: decode_keystore
+      #     uses: timheuer/base64-to-file@v1
+      #     with:
+      #       fileName: 'keystore/test_keystore.jks'
+      #       encodedString: ${{ secrets.KEYSTORE }}
 
-      - name: Build Project
-        run: ./gradlew assemble
+      - name: Decode Keystore
+          env:
+            ENCODED_STRING: ${{ secrets.KEYSTORE }}
+          run: |
+            TMP_KEYSTORE_FILE_PATH="${RUNNER_TEMP}"/keystore
+            mkdir "${TMP_KEYSTORE_FILE_PATH}"
+            echo $ENCODED_STRING | base64 -di > "${TMP_KEYSTORE_FILE_PATH}"/test_keystore.jks
+
+#      - name: Make gradlew executable
+#          run: chmod +x ./gradlew
+#      - name: build prod
+#          # run: ./gradlew app:bundleRelease
+#          run: ./gradlew assemble
+#          env:
+#            SIGNING_KEY_ALIAS: ${{ secrets.TEST_SIGNING_KEY_ALIAS }}
+#            SIGNING_KEY_PASSWORD: ${{ secrets.TEST_SIGNING_KEY_PASSWORD }}
+#            SIGNING_STORE_PASSWORD: ${{ secrets.TEST_SIGNING_STORE_PASSWORD }}
+
+
+      - name: Restore gradle.properties
+          env:
+            # test_key_dir: ${{ secrets.TEST_KEY_DIR }}
+            SIGNING_KEY_ALIAS: ${{ secrets.TEST_SIGNING_KEY_ALIAS }}
+            SIGNING_KEY_PASSWORD: ${{ secrets.TEST_SIGNING_KEY_PASSWORD }}
+            SIGNING_STORE_PASSWORD: ${{ secrets.TEST_SIGNING_STORE_PASSWORD }}
+          shell: bash
+          run: |
+            mkdir -p ~/.gradle/
+            echo "::set-env name=GRADLE_USER_HOME::$HOME/.gradle"
+            # echo ${test_key_dir} > ~/.gradle/gradle.properties
+            echo ${SIGNING_KEY_PASSWORD} > ~/.gradle/gradle.properties
+            echo ${SIGNING_STORE_PASSWORD} > ~/.gradle/gradle.properties
+            echo ${SIGNING_KEY_ALIAS} > ~/.gradle/gradle.properties
+
+      - name: Run Tests
+        run: ./gradlew test
+
+#      - name: Build Project
+#        run: ./gradlew assemble

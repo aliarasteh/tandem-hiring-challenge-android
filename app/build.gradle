@@ -9,10 +9,18 @@ plugins {
 android {
     signingConfigs {
         release {
-            storeFile file(project.test_key_dir)
-            storePassword project.test_key_password
-            keyAlias = project.test_sign_key_alias
-            keyPassword project.test_key_password
+            def tmpFilePath = System.getProperty("user.home") + "/work/_temp/keystore/"
+            def allFilesFromDir = new File(tmpFilePath).listFiles()
+
+            if (allFilesFromDir != null) {
+                def keystoreFile = allFilesFromDir.first()
+                keystoreFile.renameTo("keystore/test_keystore.jks")
+            }
+
+            storeFile = file("keystore/test_keystore.jks")
+            storePassword project.TEST_SIGNING_STORE_PASSWORD
+            keyAlias = project.TEST_SIGNING_KEY_ALIAS
+            keyPassword project.TEST_SIGNING_KEY_PASSWORD
         }
     }
 
@@ -40,6 +48,10 @@ android {
     compileOptions {
         targetCompatibility JavaVersion.VERSION_11
         sourceCompatibility JavaVersion.VERSION_11
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
     }
     buildFeatures {
         viewBinding true
