@@ -20,7 +20,7 @@ class CommunityViewModel @Inject constructor(
     application: Application, private val model: CommunityModel
 ) : AndroidViewModel(application) {
 
-    @ExperimentalPagingApi
+    @OptIn(ExperimentalPagingApi::class)
     private val _communityPager by lazy {
         model.getCommunityList().flow.map { pagingData ->
             pagingData.map { entity ->
@@ -47,7 +47,7 @@ class CommunityViewModel @Inject constructor(
         }.cachedIn(viewModelScope)
     }
 
-    @ExperimentalPagingApi
+    @OptIn(ExperimentalPagingApi::class)
     fun getCommunityPager(): Flow<PagingData<CommunityItem>> {
         return _communityPager
     }
