@@ -11,7 +11,6 @@ import java.io.IOException
 
 // region Paging Related Functions
 
-@ExperimentalPagingApi
 open class PagerBuilder<T : Any, A> {
     internal var pageSize: Int = 10
     internal var databaseQuery: (() -> PagingSource<Int, T>)? = null
@@ -93,7 +92,7 @@ open class PagerBuilder<T : Any, A> {
  * @param saveCallResult: this function is meant to save network result into database
  * @param reachedEndStrategy: this function checks when last page reached
  *  */
-@ExperimentalPagingApi
+@OptIn(ExperimentalPagingApi::class)
 fun <T : Any, A> createPagerWithDatabaseAndNetwork(
     pageSize: Int,
     databaseQuery: () -> PagingSource<Int, T>,

@@ -37,7 +37,7 @@ class CommunityFragmentSimple :
         }
     }
 
-    @ExperimentalPagingApi
+    @OptIn(ExperimentalPagingApi::class)
     override fun getDataPager(): Flow<PagingData<CommunityItem>> {
         return viewModel.getCommunityPager()
     }
